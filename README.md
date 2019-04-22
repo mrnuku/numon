@@ -21,5 +21,19 @@ $ npm i -g numon
 go to your project in console and run with
 
 ```console
-$ numon [index.js || . || package.json || package || index]
+$ numon {-options} [index.js || . || package.json || package || index]
+```
+
+## Options
+
+* i - enable (I)nspector on localhost:9229
+* s - let inspector (S)ettle before main module loads
+* w - (W)ait before main module loads
+* r - open inspector for (R)emote connections (binding on 0.0.0.0)
+* p - use (P)ersistent watchers for keep finite running modules restartable
+
+## Example
+
+```console
+$ numon -iswrp .
 ```

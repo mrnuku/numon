@@ -23,7 +23,7 @@ process.numon = {
 process.numon.originals['Module._resolveFilename'] = Module._resolveFilename;
 
 const registerWatcherForDirectory = (directory) => {
-  const watcher = fs.watch(directory, { persistent: true, encoding: 'utf8' }, (eventType, filename) => {
+  const watcher = fs.watch(directory, { persistent: process.numon.options.watcher.persistent, encoding: 'utf8' }, (eventType, filename) => {
     const moduleName = `${directory}/${filename}`;
     
     if (Module._cache[moduleName] !== undefined && process.numon.batch.find(e => e === moduleName) === undefined) {
