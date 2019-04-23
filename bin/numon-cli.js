@@ -40,6 +40,9 @@ for (const argidx in args) {
       }
     }
   }
+  else {
+    break;
+  }
 }
 
 if (unknownOptions.length === 0 && args.length > 0 && targetIndex < args.length) {

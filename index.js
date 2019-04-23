@@ -43,8 +43,19 @@ const registerWatcherForDirectory = (directory) => {
             if (ext == '.js') {
               const content = stripShebang(readSync(moduleName, 'utf8'));
               const script = new vm.Script(Module.wrap(content), { displayErrors: true, filename: moduleName });
-              script.runInNewContext().call({}, {}, (r) => {}, {}, moduleName, moduleName);
-              Module._cache[moduleName]._compile(content, moduleName);
+              const targetModule = Module._cache[moduleName];
+              const dummyModule = {
+                children:[],
+                exports: {},
+                filename: targetModule.filename,
+                id: targetModule.id,
+                loaded: false,
+                parent: null,
+                paths: [],
+                require: (r) => targetModule.require(r)
+              }
+              script.runInNewContext().call({}, dummyModule.exports, dummyModule.require, dummyModule, moduleName, path.dirname(moduleName));
+              targetModule._compile(content, moduleName);
             }
             else {
               Module._extensions[ext](Module._cache[moduleName], moduleName);
