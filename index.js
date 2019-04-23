@@ -41,7 +41,7 @@ const registerWatcherForDirectory = (directory) => {
           
           try {
             if (ext == '.js') {
-              const content = stripShebang(readSync(moduleName, 'utf8'));
+              const content = stripShebang(readSync(moduleName, 'utf8')) + "";
               const script = new vm.Script(Module.wrap(content), { displayErrors: true, filename: moduleName });
               const targetModule = Module._cache[moduleName];
               const dummyModule = {

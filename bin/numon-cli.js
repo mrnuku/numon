@@ -50,9 +50,13 @@ if (unknownOptions.length === 0 && args.length > 0 && targetIndex < args.length)
   const target = require.resolve(`${process.cwd()}/${args[targetIndex]}`);
   
   if (options.inspector.enable === true) {
-    require('inspector').open(options.inspector.port, options.inspector.host, options.inspector.settle);
+    process.execArgv.push('--inspect');
+    process.execArgv.push('--debug');
+    require('inspector').open(options.inspector.port, options.inspector.host, options.inspector.wait || options.inspector.settle);
 
     if (options.inspector.wait === true) {
+      process.execArgv.push('--inspect-brk');
+      process.execArgv.push('--debug-brk');
       debugger;
     }
   }
