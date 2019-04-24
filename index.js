@@ -94,7 +94,7 @@ Module._resolveFilename = function(request, parent, isMain, options) {
 }
 
 const readSync = (filename, options) => {
-  const fd = fs.openSync(filename);
+  const fd = fs.openSync(filename, 'r');
   const fstat = fs.fstatSync(fd);
   const buffer = Buffer.allocUnsafe(fstat.size);
   buffer.charCodeAt = (i) => buffer[i]; // <- hope this compatibility hax will be the one and only
