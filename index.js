@@ -127,7 +127,7 @@ const buildDepedenciesForParent = exports.buildDepedenciesForParent = (parent, f
   let depedencies = process.numon.depedencies[parent];
   let children = depedencies !== undefined ? Object.keys(depedencies) : []; // handle node with no depedencies
   children = filterChildren !== null ? children.filter(e => filterChildren.indexOf(e) !== -1) : children;
-  depedencies = children.map(e => [parent, e]);
+  depedencies = children.map(e => [e, parent]);
   return depedencies;
 }
 
