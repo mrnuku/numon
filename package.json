@@ -1,6 +1,6 @@
 {
   "name": "numon",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "interactive node modules hotloader",
   "main": "index.js",
   "scripts": {
