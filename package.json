@@ -24,5 +24,8 @@
     "bin": "./bin"
   },
   "homepage": "https://nuisance.club/",
-  "preferGlobal": true
+  "preferGlobal": true,
+  "dependencies": {
+    "toposort": "^2.0.2"
+  }
 }
