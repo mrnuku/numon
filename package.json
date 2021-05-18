@@ -23,7 +23,7 @@
   "directories": {
     "bin": "./bin"
   },
-  "homepage": "https://nuisance.club/",
+  "homepage": "https://forum.holyspirit.hu",
   "preferGlobal": true,
   "dependencies": {
     "toposort": "^2.0.2"
