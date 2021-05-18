@@ -1,6 +1,6 @@
 {
   "name": "numon",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "interactive node modules hotloader",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "mrnuku",
   "license": "MIT",
   "bin": {
-    "numon": "./bin/numon-cli.js"
+    "numon": "bin/numon-cli.js"
   },
   "directories": {
     "bin": "./bin"
